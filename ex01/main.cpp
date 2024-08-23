@@ -6,7 +6,7 @@
 /*   By: jcummins <jcummins@student.42prague.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 13:40:44 by jcummins          #+#    #+#             */
-/*   Updated: 2024/08/23 16:59:15 by jcummins         ###   ########.fr       */
+/*   Updated: 2024/08/23 17:15:12 by jcummins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,13 @@ int	com_search(PhoneBook *phonebook)
 	int			index;
 	std::cout << "Enter index to display: ";
 	std::cin >> index;
+	if (std::cin.fail())
+	{
+		std::cout << "Invalid input!" << std::endl;
+		std::cin.clear();
+		std::cin.ignore();
+		return (1);
+	}
 	if (index < 0 || index > 7)
 	{
 		std::cout << "Invalid index, please try again" << std::endl;
