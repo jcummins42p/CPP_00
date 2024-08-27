@@ -6,7 +6,7 @@
 /*   By: jcummins <jcummins@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 14:38:34 by jcummins          #+#    #+#             */
-/*   Updated: 2024/08/26 19:00:33 by jcummins         ###   ########.fr       */
+/*   Updated: 2024/08/27 15:00:27 by jcummins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,93 +14,43 @@
 
 Contact::Contact(void)
 {
-	std::cout << "Contact constructor called" << std::endl;
 	return ;
 }
 
 Contact::~Contact(void)
 {
-	std::cout << "Contact destructor called" << std::endl;
 	return ;
 }
 
-void Contact::setFirstName(std::string input)
+void	Contact::displayline(int index)
 {
-	firstname = input;
+	std::cout << "|" << std::setw(5) << index << std::setw(5)
+		<< "|" << std::left << std::setw(20) << firstname
+		<< "|" << std::left << std::setw(20) << lastname
+		<< "|" << std::left << std::setw(20) << nickname
+		<< "|" << std::endl;
 }
 
-void Contact::setLastName(std::string input)
+void	Contact::displayfull(void)
 {
-	lastname = input;
-}
-
-void Contact::setNickName(std::string input)
-{
-	nickname = input;
-}
-
-void	Contact::setPhoneNumber(int input)
-{
-	phonenumber = input;
-}
-
-void	Contact::setDarkSecret(std::string input)
-{
-	darksecret = input;
-}
-
-void	Contact::display(void)
-{
-	std::cout << "First Name: " << firstname << std::endl;
-	std::cout << "Last Name: " << lastname << std::endl;
-	std::cout << "Nickame: " << firstname << std::endl;
-	std::cout << "First Name: " << phonenumber	<< std::endl;
-	std::cout << "First Name: " << darksecret << std::endl;
+	std::cout	<< "First Name: " << firstname << std::endl
+				<< "Last Name: " << lastname << std::endl
+				<< "Nickname: " << firstname << std::endl
+				<< "Phone Number: " << phonenumber << std::endl
+				<< "Darkest Secret: " << darksecret << std::endl;
 }
 
 void	Contact::add(void)
 {
-	std::string firstName, lastName, nickName, darkSecret;
-
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	std::cout << "Enter first name: ";
-	std::cout.flush();
-	std::getline(std::cin, firstName);
+	std::getline(std::cin >> std::ws, firstname);
 	std::cout << "Enter last name: ";
-	std::cout.flush();
-	std::getline(std::cin, lastName);
+	std::getline(std::cin >> std::ws, lastname);
 	std::cout << "Enter nickname: ";
-	std::cout.flush();
-	std::getline(std::cin, nickName);
+	std::getline(std::cin >> std::ws, nickname);
+	std::cout << "Enter phone number: ";
+	std::getline(std::cin >> std::ws, phonenumber);
 	std::cout << "Enter darkest secret: ";
-	std::cout.flush();
-	std::getline(std::cin, darkSecret);
-	setFirstName(firstName);
-	setLastName(lastName);
-	setNickName(nickName);
-	setDarkSecret(darkSecret);
-}
-
-std::string Contact::getFirstName(void)
-{
-	return firstname;
-}
-
-std::string Contact::getLastName(void)
-{
-	return lastname;
-}
-
-std::string Contact::getNickName(void)
-{
-	return nickname;
-}
-
-int			Contact::getPhoneNumber(void)
-{
-	return phonenumber;
-}
-
-std::string Contact::getDarkSecret(void)
-{
-	return darksecret;
+	std::getline(std::cin >> std::ws, darksecret);
 }

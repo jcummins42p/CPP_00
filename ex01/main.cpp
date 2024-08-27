@@ -6,7 +6,7 @@
 /*   By: jcummins <jcummins@student.42prague.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 13:40:44 by jcummins          #+#    #+#             */
-/*   Updated: 2024/08/26 18:46:30 by jcummins         ###   ########.fr       */
+/*   Updated: 2024/08/27 15:03:45 by jcummins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,9 @@
 int		main(void)
 {
 	PhoneBook	phonebook;
-	while(1)
+	std::string	command;
+	while (std::cout << "Enter a command: " && std::cin >> command)
 	{
-		std::string	command;
-		std::cout << "Enter a command: ";
-		std::cin >> command;
-
 		if (!command.compare("EXIT"))
 			break;
 		else if (!command.compare("ADD"))

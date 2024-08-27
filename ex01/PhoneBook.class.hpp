@@ -6,7 +6,7 @@
 /*   By: jcummins <jcummins@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 14:32:42 by jcummins          #+#    #+#             */
-/*   Updated: 2024/08/26 18:22:57 by jcummins         ###   ########.fr       */
+/*   Updated: 2024/08/27 13:14:34 by jcummins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ class	PhoneBook
 
 		void 	search();
 		void	add();
+		void	display();
 	private:
 		Contact	contacts[8];
 		int		index;
