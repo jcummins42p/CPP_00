@@ -6,7 +6,7 @@
 /*   By: jcummins <jcummins@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 14:38:20 by jcummins          #+#    #+#             */
-/*   Updated: 2024/08/27 15:07:32 by jcummins         ###   ########.fr       */
+/*   Updated: 2024/08/27 16:42:28 by jcummins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,37 +25,45 @@ PhoneBook::~PhoneBook(void)
 
 void	PhoneBook::display()
 {
-	int	i = -1;
-
-	std::cout << "|" << std::setw(7) << "index" << std::setw(3) << "|" << std::setw(15) << "first name" << std::setw(5) << "|" << std::setw(14) << "last name" << std::setw(6) << "|" << std::setw(14) << "nickname" << std::setw(6) << "|" << std::endl;
-	while (++i <= 7)
+	for (int i = 0; i <= 43; i++)
+		std::cout << "-";
+	std::cout	<< std::endl << std::right << "|"
+				<< std::setw(7) << "index" << std::setw(3) << "|"
+				<< std::setw(10) << "first name" << "|"
+				<< std::setw(10) << "last name" << "|"
+				<< std::setw(10) << "nickname" << "|"
+				<< std::endl;
+	for (int i = 0; i <= 43; i++)
+		std::cout << "-";
+	std::cout <<std::endl;
+	for (int i = 0; i < 8; i++)
 		contacts[i].displayline(i);
+	for (int i = 0; i <= 43; i++)
+		std::cout << "-";
+	std::cout <<std::endl;
 }
 
 void	PhoneBook::search()
 {
-	int			i;
+	std::string	input;
+	int			i = 0;
 
 	display();
-	while (std::cout << "Choose an index to display: " && std::cin >> i)
+	while (std::cout << "Choose an index between 1 and 8 to display contact: "
+		&& std::cin >> input)
 	{
-		if (std::cin.fail())
-			std::cout << "Error: Please use numeric input" << std::endl;
-		else if (i < 0 || i > 7)
-			std::cout << "Error: Index out of range" << std::endl;
-		else
+		if (input.length() == 1 && input >= "1" && input <= "8")
 		{
-			contacts[i].displayfull();
+			i = input[0] - '0';
+			contacts[i - 1].displayfull();
 			return ;
 		}
-		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}
 }
 
 void	PhoneBook::add()
 {
-	std::cout << "Adding to phonebook at index " << index << std::endl;
+	std::cout << "Adding to phonebook at index " << index + 1 << std::endl;
 	contacts[index].add();
 	if (++index > 7)
 		index = 0;

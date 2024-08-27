@@ -6,7 +6,7 @@
 /*   By: jcummins <jcummins@student.42prague.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 13:40:44 by jcummins          #+#    #+#             */
-/*   Updated: 2024/08/27 15:03:45 by jcummins         ###   ########.fr       */
+/*   Updated: 2024/08/27 16:09:04 by jcummins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ int		main(void)
 	std::string	command;
 	while (std::cout << "Enter a command: " && std::cin >> command)
 	{
-		if (!command.compare("EXIT"))
+		if (command == "EXIT")
 			break;
-		else if (!command.compare("ADD"))
+		else if (command == "ADD")
 			phonebook.add();
-		else if (!command.compare("SEARCH"))
+		else if (command == "SEARCH")
 			phonebook.search();
 	}
 	return (0);

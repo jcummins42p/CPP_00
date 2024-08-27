@@ -6,7 +6,7 @@
 /*   By: jcummins <jcummins@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 14:33:04 by jcummins          #+#    #+#             */
-/*   Updated: 2024/08/27 14:04:40 by jcummins         ###   ########.fr       */
+/*   Updated: 2024/08/27 16:06:13 by jcummins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class	Contact
 		~Contact(void);
 
 		void		displayfull();
+		std::string	truncate(std::string str);
 		void		displayline(int index);
 		void		add();
 
