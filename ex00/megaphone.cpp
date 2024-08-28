@@ -6,13 +6,12 @@
 /*   By: jcummins <jcummins@student.42prague.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 13:40:44 by jcummins          #+#    #+#             */
-/*   Updated: 2024/08/22 16:45:51 by jcummins         ###   ########.fr       */
+/*   Updated: 2024/08/28 15:47:14 by jcummins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <algorithm>
-#include <cctype>
+#include <iostream>		// needed for std out
+#include <algorithm>	// needed for transform
 
 void	megaphone(int n_words, char *argv[])
 {
