@@ -6,11 +6,12 @@
 /*   By: jcummins <jcummins@student.42prague.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 13:40:44 by jcummins          #+#    #+#             */
-/*   Updated: 2024/08/27 16:09:04 by jcummins         ###   ########.fr       */
+/*   Updated: 2024/08/28 15:39:42 by jcummins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
+#include "PhoneBook.class.hpp"
+#include "Contact.class.hpp"
 
 int		main(void)
 {

@@ -6,11 +6,11 @@
 /*   By: jcummins <jcummins@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 14:38:20 by jcummins          #+#    #+#             */
-/*   Updated: 2024/08/27 16:42:28 by jcummins         ###   ########.fr       */
+/*   Updated: 2024/08/28 15:41:40 by jcummins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
+#include "PhoneBook.class.hpp"
 
 PhoneBook::PhoneBook(void)
 {

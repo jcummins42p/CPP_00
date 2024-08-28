@@ -6,12 +6,17 @@
 /*   By: jcummins <jcummins@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 14:33:04 by jcummins          #+#    #+#             */
-/*   Updated: 2024/08/27 16:06:13 by jcummins         ###   ########.fr       */
+/*   Updated: 2024/08/28 15:39:59 by jcummins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_CLASS_HPP
 # define CONTACT_CLASS_HPP
+
+# include <string>
+# include <iostream>
+# include <iomanip>
+# include <limits>
 
 class	Contact
 {

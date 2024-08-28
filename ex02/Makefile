@@ -6,15 +6,15 @@
 #    By: jcummins <jcummins@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/26 18:08:59 by jcummins          #+#    #+#              #
-#    Updated: 2024/08/11 15:07:59 by jcummins         ###   ########.fr        #
+#    Updated: 2024/08/28 14:25:53 by jcummins         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = megaphone
+NAME = accounts
 
 SRC_DIR = .
 OBJ_DIR = obj
-CC = cc
+CC = c++
 CFLAGS = -g -Werror -Wextra -Wall -pedantic -std=c++98
 
 SRCS = $(shell find $(SRC_DIR) -name '*.cpp')
@@ -35,12 +35,10 @@ $(OBJ_DIR)/%.o:	$(SRC_DIR)/%.c $(HEADS)
 clean:
 	@echo "💥 Removing all object files"
 	@rm -rf $(OBJ_DIR)
-	@(cd $(LIB_DIR) && make clean)
 
 fclean: clean
 	@echo "💥 Removing all object files and executable"
 	@rm -rf $(NAME)
-	@(cd $(LIB_DIR) && make fclean)
 
 re:	fclean all
 
