@@ -6,21 +6,35 @@
 /*   By: jcummins <jcummins@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 14:38:34 by jcummins          #+#    #+#             */
-/*   Updated: 2024/08/28 15:40:40 by jcummins         ###   ########.fr       */
+/*   Updated: 2024/08/28 17:41:17 by jcummins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.class.hpp"
 
-Contact::Contact(void)
+Contact::Contact(void) {}
+
+Contact::Contact(const Contact& contact) :
+	firstname(contact.firstname),
+	lastname(contact.lastname),
+	nickname(contact.nickname),
+	phonenumber(contact.phonenumber),
+	darksecret(contact.darksecret)	{}
+
+Contact& Contact::operator=(const Contact& contact)
 {
-	return ;
+	if (this != &contact)
+	{
+		firstname = contact.firstname;
+		lastname = contact.lastname;
+		nickname = contact.nickname;
+		phonenumber = contact.phonenumber;
+		darksecret = contact.darksecret;
+	}
+	return *this;
 }
 
-Contact::~Contact(void)
-{
-	return ;
-}
+Contact::~Contact(void) {}
 
 std::string	Contact::truncate(std::string str)
 {

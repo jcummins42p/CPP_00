@@ -6,7 +6,7 @@
 /*   By: jcummins <jcummins@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 14:33:04 by jcummins          #+#    #+#             */
-/*   Updated: 2024/08/28 15:52:58 by jcummins         ###   ########.fr       */
+/*   Updated: 2024/08/28 16:53:09 by jcummins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ class	Contact
 {
 	public:
 		Contact(void);
+		Contact(const Contact &contact);
+		Contact& operator=(const Contact&);
 		~Contact(void);
 
 		void		displayfull();

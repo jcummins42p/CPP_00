@@ -6,22 +6,33 @@
 /*   By: jcummins <jcummins@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 14:38:20 by jcummins          #+#    #+#             */
-/*   Updated: 2024/08/28 15:41:40 by jcummins         ###   ########.fr       */
+/*   Updated: 2024/08/28 17:41:05 by jcummins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.class.hpp"
 
-PhoneBook::PhoneBook(void)
+PhoneBook::PhoneBook(void): _currIndex(0) {}
+
+PhoneBook::PhoneBook(const PhoneBook& phonebook)
 {
-	index = 0;
+	for (int i = 0; i < 8; i++)
+		_contacts[i] = phonebook._contacts[i];
 	return ;
 }
 
-PhoneBook::~PhoneBook(void)
+PhoneBook& PhoneBook::operator=(const PhoneBook& phonebook)
 {
-	return ;
+	if (this != &phonebook)
+	{
+		for (int i = 0; i < 8; i++)
+			_contacts[i] = phonebook._contacts[i];
+		_currIndex = phonebook._currIndex;
+	}
+	return *this;
 }
+
+PhoneBook::~PhoneBook(void) {}
 
 void	PhoneBook::display()
 {
@@ -37,7 +48,7 @@ void	PhoneBook::display()
 		std::cout << "-";
 	std::cout <<std::endl;
 	for (int i = 0; i < 8; i++)
-		contacts[i].displayline(i);
+		_contacts[i].displayline(i);
 	for (int i = 0; i <= 43; i++)
 		std::cout << "-";
 	std::cout <<std::endl;
@@ -55,7 +66,7 @@ void	PhoneBook::search()
 		if (input.length() == 1 && input >= "1" && input <= "8")
 		{
 			i = input[0] - '0';
-			contacts[i - 1].displayfull();
+			_contacts[i - 1].displayfull();
 			return ;
 		}
 	}
@@ -63,9 +74,9 @@ void	PhoneBook::search()
 
 void	PhoneBook::add()
 {
-	std::cout << "Adding to phonebook at index " << index + 1 << std::endl;
-	contacts[index].add();
-	if (++index > 7)
-		index = 0;
+	std::cout << "Adding to phonebook at index " << _currIndex + 1 << std::endl;
+	_contacts[_currIndex].add();
+	if (++_currIndex > 7)
+		_currIndex = 0;
 }
 

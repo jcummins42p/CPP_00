@@ -6,7 +6,7 @@
 /*   By: jcummins <jcummins@student.42prague.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 14:32:42 by jcummins          #+#    #+#             */
-/*   Updated: 2024/08/28 15:53:29 by jcummins         ###   ########.fr       */
+/*   Updated: 2024/08/28 16:56:34 by jcummins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,16 @@ class	PhoneBook
 {
 	public:
 		PhoneBook( void );
+		PhoneBook(const PhoneBook& phonebook);
+		PhoneBook& operator=(const PhoneBook&);
 		~PhoneBook( void );
 
 		void 	search();
 		void	add();
 		void	display();
 	private:
-		Contact	contacts[8];
-		int		index;
+		Contact	_contacts[8];
+		int		_currIndex;
 };
 
 #endif
