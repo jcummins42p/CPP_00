@@ -6,35 +6,32 @@
 #    By: jcummins <jcummins@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/26 18:08:59 by jcummins          #+#    #+#              #
-#    Updated: 2024/08/28 14:25:53 by jcummins         ###   ########.fr        #
+#    Updated: 2024/11/19 15:52:45 by jcummins         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = accounts
 
-SRC_DIR = .
-OBJ_DIR = obj
-CC = c++
-CFLAGS = -g -Werror -Wextra -Wall -pedantic -std=c++98
+CXX = c++
+CXXFLAGS = -g -Werror -Wextra -Wall -pedantic -std=c++98
+SRCS = Account.cpp tests.cpp
+HEADERS = Account.hpp
 
-SRCS = $(shell find $(SRC_DIR) -name '*.cpp')
-HEADS = $(shell find $(HEAD_DIR) -name '*.hpp')
-OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) $^ -o $@
+	@$(CXX) $(CXXFLAGS) $^ -o $@
 	@echo "✅ Linking object files into executable $@"
 
-$(OBJ_DIR)/%.o:	$(SRC_DIR)/%.c $(HEADS)
-	@mkdir -p $(@D)
-	@$(CC) $(CFLAGS) -c $< -o $@
+%.o: %.cpp
+	@$(CXX) $(CXXFLAGS) -c $< -o $@
 	@echo "✅ Complied object file $@ from source file $<"
 
 clean:
 	@echo "💥 Removing all object files"
-	@rm -rf $(OBJ_DIR)
+	@rm -rf $(OBJS)
 
 fclean: clean
 	@echo "💥 Removing all object files and executable"
@@ -43,3 +40,6 @@ fclean: clean
 re:	fclean all
 
 .PHONY: all clean fclean re
+
+#target: prerequisite
+#	recipe
